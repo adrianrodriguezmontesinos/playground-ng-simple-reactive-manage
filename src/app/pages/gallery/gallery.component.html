@@ -1,0 +1,16 @@
+<h1>Zapatillas MKW</h1>
+
+@if(!sportTrainers() && !casualTrainers() && !casualTrainers() ) {
+  <p class="alert">Ha habido un error a la hora de cargar los productos.</p>
+}
+@else{
+  @if(sportTrainers()) {
+    <app-trainers [trainers]="sportTrainers()"></app-trainers>
+  } 
+  @if(casualTrainers()) {
+    <app-trainers [trainers]="casualTrainers()"></app-trainers>
+  } 
+  @if(streetTrainers()) {
+    <app-trainers [trainers]="streetTrainers()"></app-trainers>
+  } 
+}

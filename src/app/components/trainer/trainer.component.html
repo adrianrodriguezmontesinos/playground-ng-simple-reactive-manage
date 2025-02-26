@@ -1,0 +1,11 @@
+@if(trainer(); as trainer) {
+    <div class="trainer">
+        <h3>{{ trainer.name}}</h3>
+        @if(trainer.trainerImage) {
+            <img [src]="trainer.trainerImage?.image" [alt]="'imagen ' + trainer.name">
+        }
+        <p>{{ trainer.desc }}</p>
+        <app-colors [colors]="trainer.colors"></app-colors>
+        <app-stock [stocks]="stock()"></app-stock>
+    </div>
+}

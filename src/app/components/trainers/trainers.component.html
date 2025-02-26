@@ -1,0 +1,9 @@
+<h2>Zapatillas {{ type() }}</h2>
+
+<div class="container-trainers">
+  @for(trainer of trainers(); track trainer.id) {
+    <app-trainer [trainer]="trainer"></app-trainer>
+  } @empty {
+    <p>No hay zapatillas {{ type() }} en nuestra tienda.</p>
+  }
+</div>

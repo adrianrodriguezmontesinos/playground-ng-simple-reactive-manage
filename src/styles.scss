@@ -1,1 +1,148 @@
-/* You can add global styles to this file, and also import other style files */
+$primary: #155151;
+$primary-light: #f1ffff;
+$nok: #bb3b3b;
+$nok-light: #fff3f3;
+$info: #2640a5;
+$info-light: #e8eeff;
+$dark: #444;
+$grey: #767676;
+$light: #f2f2f2;
+
+$shadow-cards: 0 0 6px #00000060;
+$shadow-imgs: 2px 2px 4px #0000004b;
+
+@mixin colorBorder($color: $primary) {
+    color: $color;
+    border-color: $color;
+}
+
+body {
+  padding: 0.5rem 1.5rem;
+}
+
+h1,
+h2,
+.trainer {
+  margin: 3rem 0 1rem;
+}
+
+h2 {
+  color: $primary;
+}
+
+
+h3 {
+  text-transform: capitalize;
+  color: $dark;
+}
+
+.container-trainers,
+.stock {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.trainer {
+  margin: 0.2rem;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: $shadow-cards;
+
+  img {
+    min-width: 300px;
+    box-shadow: $shadow-imgs;
+  }
+}
+
+.stock {
+  gap: 1.5rem;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__data {
+    text-align: center;
+    padding: 0.4rem;
+    border: 1px solid $grey;
+    border-radius: 12px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $primary-light;
+        @include colorBorder();
+    }
+
+    &--low {
+        @include colorBorder($nok);
+    }
+
+    &--none {
+        @include colorBorder($grey);
+        background-color: $light;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: initial;
+            border-color: $dark;
+        }
+    }
+  }
+}
+
+.color {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid $grey;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: $shadow-cards;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    p {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.alert {
+  padding: 1rem;
+  border: 1px solid $nok;
+  color: $nok;
+  background-color: $nok-light;
+  border-radius: 8px;
+  font-size: 1.2rem;
+
+  &::before {
+    content: '⚠️';
+    padding-right: .5rem;
+  }
+
+  &--info {
+    @include colorBorder($info);
+    background-color: $info-light;
+
+    &::before {
+      content: 'ℹ️';
+    }
+  }
+}

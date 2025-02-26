@@ -1,0 +1,22 @@
+<div class="stock">
+    <div class="stock__container">
+        <p>Tallas</p>
+        <p>Unidades</p>
+    </div>
+    @for(stock of stocks(); track $index) {
+        <div class="stock__container">
+            <p class="stock__data">{{ stock[0] }}</p>
+            <p class="stock__data" 
+                [class.stock__data--low]="stock[1] !== 0 && stock[1] < 4" 
+                [class.stock__data--none]="stock[1] === 0">
+                {{ stock[1] }}
+            </p>
+        </div>
+    } 
+</div>
+
+@if(totalUnits() < 24) {
+    <p class="alert alert--info">
+        Últimas unidades
+    </p>
+}

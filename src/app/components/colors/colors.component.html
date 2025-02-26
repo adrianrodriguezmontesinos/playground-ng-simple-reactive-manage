@@ -1,0 +1,10 @@
+<div class="color__container">
+    <p>Colores:</p>
+    @for(color of colors(); track $index) {
+        @if(isArray(color)) {
+            <div class="color color--grad" [style.background]="getCSSGrad(color)"></div>
+        } @else {
+            <div class="color" [style.background-color]="color"></div>
+        }
+    }
+</div>
